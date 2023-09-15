@@ -20,14 +20,15 @@ jobs:
 
     - name: Check out Code into the Go module directory
       uses: actions/checkout@v3
+
+    - name: Change the location
+      run: cd Backend
     
     - name: Build
-      working-directory: ./Backend
       run: go build -v ./...
       
     - name: Test
-      working-directory: ./Backend
-      run: go test ./...
+      run: go test -v ./...
 
     - name: Finish Pipeline
       run: echo "Pipeline has finished"
