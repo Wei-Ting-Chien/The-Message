@@ -2,7 +2,7 @@ name: Sync Upstream
 
 env:
   # 風聲網址
-  UPSTREAM_URL: "https://github.com/Game-as-a-Service/The-Message"
+  UPSTREAM_URL: "https://github.com/Game-as-a-Service/The-Message.git"
   # Required, token to authenticate bot, could use ${{ secrets.GITHUB_TOKEN }} 
   # Over here, we use a PAT instead to authenticate workflow file changes.
   WORKFLOW_TOKEN: ${{ secrets.GITHUB_TOKEN }}
