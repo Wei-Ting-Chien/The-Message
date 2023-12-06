@@ -1,0 +1,42 @@
+name: Sync Upstream
+
+env:
+  # 風聲網址
+  UPSTREAM_URL: "https://github.com/Game-as-a-Service/The-Message"
+  # Required, token to authenticate bot, could use ${{ secrets.GITHUB_TOKEN }} 
+  # Over here, we use a PAT instead to authenticate workflow file changes.
+  WORKFLOW_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+  # 「從哪個分支同步」：要同步哪個分支：「dev」 or 「main」
+  UPSTREAM_BRANCH: "main"
+  # 「同步到哪個分支」：「dev」 or 「main」 or 「Other」
+  DOWNSTREAM_BRANCH: "dev"
+  # 可以自定義參數
+  FETCH_ARGS: ""
+  MERGE_ARGS: ""
+  PUSH_ARGS: ""
+  # Optional toggle to spawn time logs (keeps action active) 
+  SPAWN_LOGS: "false" # "true" or "false"
+
+# This runs every day on 1801 UTC
+on:
+  schedule:
+  # 12:01 觸發
+    - cron: '1 12 * * *'
+  # 允許手動觸發
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Sync to Upstream Repository
+        uses: dabreadman/sync-upstream-repo@v1.3.0
+        with: 
+          upstream_repo: ${{ env.UPSTREAM_URL }}
+          upstream_branch: ${{ env.UPSTREAM_BRANCH }}
+          downstream_branch: ${{ env.DOWNSTREAM_BRANCH }}
+          token: ${{ env.WORKFLOW_TOKEN }}
+          fetch_args: ${{ env.FETCH_ARGS }}
+          merge_args: ${{ env.MERGE_ARGS }}
+          push_args: ${{ env.PUSH_ARGS }}
+          spawn_logs: ${{ env.SPAWN_LOGS }}
