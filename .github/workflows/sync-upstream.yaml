@@ -5,11 +5,11 @@ env:
   UPSTREAM_URL: "https://github.com/Game-as-a-Service/The-Message"
   # Required, token to authenticate bot, could use ${{ secrets.GITHUB_TOKEN }} 
   # Over here, we use a PAT instead to authenticate workflow file changes.
-  WORKFLOW_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+  WORKFLOW_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   # 「從哪個分支同步」：要同步哪個分支：「dev」 or 「main」
   UPSTREAM_BRANCH: "main"
   # 「同步到哪個分支」：「dev」 or 「main」 or 「Other」
-  DOWNSTREAM_BRANCH: "dev"
+  DOWNSTREAM_BRANCH: "main"
   # 可以自定義參數
   FETCH_ARGS: ""
   MERGE_ARGS: ""
