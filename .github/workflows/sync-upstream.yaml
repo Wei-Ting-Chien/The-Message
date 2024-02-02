@@ -7,9 +7,9 @@ env:
   # Over here, we use a PAT instead to authenticate workflow file changes.
   WORKFLOW_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   # 「從哪個分支同步」：要同步哪個分支：「dev」 or 「main」
-  UPSTREAM_BRANCH: "main"
+  UPSTREAM_BRANCH: "dev"
   # 「同步到哪個分支」：「dev」 or 「main」 or 「Other」
-  DOWNSTREAM_BRANCH: "main"
+  DOWNSTREAM_BRANCH: "dev"
   # 可以自定義參數
   FETCH_ARGS: ""
   MERGE_ARGS: ""
