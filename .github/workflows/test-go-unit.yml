@@ -70,10 +70,10 @@ jobs:
       mysql:
         image: mysql:8.1
         env:
-          DB_ROOT_PASSWORD: ${{ secrets.DB_ROOT_PASSWORD }}
-          DB_DATABASE: test
-          DB_USER: user
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          MYSQL_ROOT_PASSWORD: ${{ secrets.DB_ROOT_PASSWORD }}
+          MYSQL_DATABASE: test
+          MYSQL_USER: user
+          MYSQL_PASSWORD: ${{ secrets.DB_PASSWORD }}
         ports:
           - "3306:3306"
 
